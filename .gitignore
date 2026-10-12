@@ -11,3 +11,9 @@ env/
 
 # IDE
 .vscode/
+#Data & Output 
+data/
+outputs/
+*.xlsx
+*.pdf
+*.docx
