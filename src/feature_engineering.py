@@ -33,6 +33,5 @@ def add_time_features(df: pd.DataFrame) -> pd.DataFrame:
     df['Month_Year'] = df['Order Date'].dt.to_period('M')
     df['Quarter'] = df['Order Date'].dt.quarter
     df['Shipping Days'] = (df['Ship Date'] - df['Order Date']).dt.days
-    
-    print("✅ Added time features: Year, Month, Month_Year, Quarter, Shipping Days")
+    print("Added time features: Year, Month, Month_Year, Quarter, Shipping Days")
     return df

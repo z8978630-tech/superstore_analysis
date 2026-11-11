@@ -27,5 +27,5 @@ def load_data(filepath: str) -> pd.DataFrame:
     df['Order Date'] = pd.to_datetime(df['Order Date'])
     df['Ship Date'] = pd.to_datetime(df['Ship Date'])
     
-    print(f"✅ Data loaded: {df.shape[0]} rows × {df.shape[1]} columns")
+    print(f"Data loaded: {df.shape[0]} rows , {df.shape[1]} columns")
     return df

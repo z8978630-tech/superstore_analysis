@@ -29,9 +29,11 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     print("=" * 60)
     
     # Step 1: Remove duplicates
+    df.memory_usage(deep=True).sum()/1024**2
     before = len(df)
     df = df.drop_duplicates(subset=['Order ID', 'Product ID'])
-    print(f"✓ Removed duplicates: {before - len(df)} rows")
+    print(f" Removed duplicates: {before - len(df)} rows")
+    df.memory_usage(deep=True).sum()/1024**2
     
     # Step 2: Convert categorical columns
     categorical_cols = ['Segment', 'Region', 'Category', 'Sub-Category']
@@ -42,7 +44,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     # Step 3: Filter invalid values
     before = len(df)
     df = df[(df['Sales'] >= 0) & (df['Profit'].abs() <= 1000)]
-    print(f"✓ Removed invalid values: {before - len(df)} rows")
+    print(f" Removed invalid values: {before - len(df)} rows")
     
-    print(f"\n✅ Final shape: {df.shape[0]} rows × {df.shape[1]} columns")
+    print(f"\n Final shape: {df.shape[0]} rows  {df.shape[1]} columns")
     return df
